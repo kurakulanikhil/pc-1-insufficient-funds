@@ -11,9 +11,13 @@ public class Account {
     //create getter and setter
 
 
+    public int getAccountBalance() {
+        return accountBalance;
+    }
 
-
-
+    public void setAccountBalance(int accountBalance) {
+        this.accountBalance = accountBalance;
+    }
 
     /**
      * This method returns the new balance deducting the withdraw amount from the balance
@@ -22,12 +26,17 @@ public class Account {
      * @param amount
      * @return
      * @throws InsufficientFundException
-     *
      */
-    public int  withdraw(int  amount) throws InsufficientFundException{
+    public int withdraw(int amount) throws InsufficientFundException {
+        if (amount > accountBalance) {
+            throw new ArithmeticException("in sufficent balance");
+        } else {
+            accountBalance = accountBalance - amount;
 
-        return 1;
+        }
+        return accountBalance;
     }
 
-
 }
+
+
